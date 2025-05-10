@@ -7,6 +7,8 @@ import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("Home");
+  const [showSignup, setShowSignup] = useState(false);
+    const [showLogin, setShowLogin] = useState(false);
   const navigate = useNavigate();
 
   const navLinks = [
@@ -27,6 +29,7 @@ const Navbar = () => {
   };
 
   return (
+    <>
     <nav className="bg-white shadow-md fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
@@ -51,8 +54,10 @@ const Navbar = () => {
 
         {/* Auth Buttons */}
         <div className="hidden md:flex items-center space-x-4">
-          <button className="text-black hover:text-purple-900">Login</button>
-          <button className="bg-purple-900 text-white px-4 py-1 rounded hover:bg-blue-700">
+          <button className="text-black hover:text-purple-900"
+          onClick={() => setShowLogin(true)}>Login</button>
+          <button className="bg-purple-900 text-white px-4 py-1 rounded hover:bg-blue-700"
+           onClick={() => setShowSignup(true)}>
             Sign Up
           </button>
         </div>
@@ -82,15 +87,54 @@ const Navbar = () => {
             </button>
           ))}
           <hr className="my-2" />
-          <button className="block w-full text-left py-2 text-gray-700 hover:text-blue-600">
+          <button className="block w-full text-left py-2 text-gray-700 hover:text-blue-600"
+           onClick={() => {
+    setShowLogin(true);
+    setIsOpen(false);
+  }}>
             Login
           </button>
-          <button className="block w-full text-left py-2 bg-purple-900 text-white rounded hover:bg-blue-700 px-3">
+          <button className="block w-full text-left py-2 bg-purple-900 text-white rounded hover:bg-blue-700 px-3"
+           onClick={() => {
+    setShowSignup(true);
+    setIsOpen(false);
+  }}>
             Sign Up
           </button>
         </div>
       )}
     </nav>
+
+    {showLogin && (
+        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center">
+          <div className="bg-white rounded-lg shadow-xl w-96 p-6">
+            <h2 className="text-xl font-semibold mb-4">Login</h2>
+            <input type="email" placeholder="Email" className="w-full p-2 mb-3 border rounded" />
+            <input type="password" placeholder="Password" className="w-full p-2 mb-3 border rounded" />
+            <div className="flex justify-end space-x-2">
+              <button onClick={() => setShowLogin(false)} className="px-4 py-1 bg-gray-300 rounded hover:bg-gray-400">Cancel</button>
+              <button className="px-4 py-1 bg-purple-900 text-white rounded hover:bg-blue-700">Login</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Signup Modal */}
+      {showSignup && (
+        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center">
+          <div className="bg-white rounded-lg shadow-xl w-96 p-6">
+            <h2 className="text-xl font-semibold mb-4">Sign Up</h2>
+            <input type="text" placeholder="Name" className="w-full p-2 mb-3 border rounded" />
+            <input type="email" placeholder="Email" className="w-full p-2 mb-3 border rounded" />
+            <input type="password" placeholder="Password" className="w-full p-2 mb-3 border rounded" />
+            <div className="flex justify-end space-x-2">
+              <button onClick={() => setShowSignup(false)} className="px-4 py-1 bg-gray-300 rounded hover:bg-gray-400">Cancel</button>
+              <button className="px-4 py-1 bg-purple-900 text-white rounded hover:bg-blue-700">Sign Up</button>
+            </div>
+          </div>
+        </div>
+      )}
+      </>
   );
 };
 

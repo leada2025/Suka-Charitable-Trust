@@ -7,6 +7,7 @@ import UpcomingEvents from './UpcomingEvents'
 import SuccessStoriesCarousel from './SuccessStories'
 
 function Homepage() {
+   window.scroll(0, 0);
   return (
 
     <>

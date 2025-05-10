@@ -95,7 +95,7 @@ const NewsCarousel = () => {
                 </h3>
                 <p className="text-black mb-6" data-aos="flip-right">{news.description}</p>
                 <a
-                  href={news.link}
+                 
                   className="inline-block bg-purple-900 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
                   data-aos="flip-right"
                 >
