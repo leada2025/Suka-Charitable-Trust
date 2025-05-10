@@ -1,6 +1,8 @@
 import React from "react";
 
 const Resources = () => {
+  window.scroll(0, 0);
+
   return (
     
      <section className=" min-h-screen px-6 md:px-20 py-16 relative">

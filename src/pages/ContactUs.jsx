@@ -1,11 +1,13 @@
 import React from "react";
 
 const ContactUsPage = () => {
+  window.scroll(0, 0);
+
   return (
      <section className="bg-white text-black px-6 md:px-20 py-16 mx-auto relative">
       {/* Heading */} <br />
        <div className="absolute top-0 left-0 w-74 h-100 bg-gradient-to-br from-blue-600 to-transparent rounded-br-full opacity-50 pointer-events-none z-0" />
-      <div className="absolute top-0 left-1/2 w-74 h-20 bg-gradient-to-br from-green-600 to-transparent rounded-b-full opacity-50 pointer-events-none z-0" />
+      <div className="absolute top-0 left-1/2 w-40 h-20 bg-gradient-to-br from-green-600 to-transparent rounded-b-full opacity-50 pointer-events-none z-0" />
       <div className="absolute bottom-0 left-4  w-74 h-20 bg-gradient-to-br from-green-600 to-transparent rounded-t-full opacity-50 pointer-events-none z-0" />
       {/* Bottom-right purple gradient */}
       <div className="absolute bottom-0 right-0 w-20 h-100 bg-gradient-to-tl from-blue-600 to-transparent rounded-tl-full opacity-50 pointer-events-none z-0" />
@@ -60,7 +62,7 @@ const ContactUsPage = () => {
           </button>
         </form>
       </div>
-
+<br />
       <div>
         <h2 className="text-2xl font-semibold text-purple-900 mb-4">📍 Location Map</h2>
         <div className="w-full h-64 bg-gray-200 flex items-center justify-center">
