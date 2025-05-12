@@ -6,7 +6,7 @@ const Resources = () => {
   return (
     
      <section className=" min-h-screen px-6 md:px-20 py-16 relative">
-        <br />
+        <br /> <br />
        <div className="absolute bottom-0 right-0 w-25 h-60 bg-gradient-to-br from-green-600 to-transparent rounded-tl-full opacity-50 pointer-events-none z-0" />
       <div className="absolute bottom-0 left-0 w-25 h-20 bg-gradient-to-br from-blue-600 to-transparent rounded-t-full opacity-50 pointer-events-none z-0" />
          <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-bl from-green-600 to-transparent rounded-full opacity-50 pointer-events-none z-0 transform -translate-x-1/2 -translate-y-1/2" />
@@ -20,14 +20,14 @@ const Resources = () => {
         </h1>
           <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-bl from-green-600 to-transparent rounded-full opacity-50 pointer-events-none z-0 transform -translate-x-1/2 -translate-y-1/2" />
         <p className="text-lg text-black mb-12 text-center max-w-3xl mx-auto">
-          At SUKA Charitable Trust, we believe knowledge is a powerful tool in the fight against kidney disease. Explore our library of materials designed to support patients, caregivers, and professionals alike.
+          At SUKA Charitable Trust, we believe knowledge is a powerful tool in the fight against kidney disease. Explore our library of materials designed to support patients, caregivers and professionals alike.
         </p>
 
         {/* Educational Materials */}
         <section className="mb-12">
           <h2 className="text-2xl font-semibold text-purple-900 mb-4">📘 Educational Materials</h2>
           <ul className="list-disc pl-6 space-y-3">
-            <li><strong>Kidney Health Basics:</strong> Guides on kidney function, common diseases, and prevention tips.</li>
+            <li><strong>Kidney Health Basics:</strong> Guides on kidney function, common diseases and prevention tips.</li>
             <li><strong>Understanding Kidney Transplants:</strong> A step-by-step breakdown of the transplant process.</li>
             <li><strong>Patient Stories:</strong> Inspiring real-life journeys of transplant recipients.</li>
             <li><strong>Legal Aspects of Transplants:</strong> Information on India's transplant laws and ethical compliance.</li>
@@ -41,8 +41,8 @@ const Resources = () => {
           <ul className="list-disc pl-6 space-y-3">
             <li><strong>Kidney-Friendly Diet Plans:</strong> Nutrition tips and recipes for kidney health.</li>
             <li><strong>Medication Management:</strong> Safe practices for commonly prescribed medicines.</li>
-            <li><strong>Pre-Transplant Preparation:</strong> Mental, physical, and financial preparation guides.</li>
-            <li><strong>Post-Transplant Care:</strong> Tips on recovery, check-ups, and lifestyle changes.</li>
+            <li><strong>Pre-Transplant Preparation:</strong> Mental, physical and financial preparation guides.</li>
+            <li><strong>Post-Transplant Care:</strong> Tips on recovery, check-ups and lifestyle changes.</li>
           </ul>
         </section>
 
@@ -78,7 +78,7 @@ const Resources = () => {
             </div>
             <div>
               <p className="font-semibold">5. How can SUKA Charitable Trust help me?</p>
-              <p>We provide awareness, screening, transplant guidance, and post-operative care resources to support your journey.</p>
+              <p>We provide awareness, screening, transplant guidance and post-operative care resources to support your journey.</p>
             </div>
           </div>
         </section>

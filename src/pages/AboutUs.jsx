@@ -8,7 +8,7 @@ const AboutUs = () => {
   return (
     
     <section className="bg-white text-black px-6 md:px-20 py-16 mx-auto relative">
-      {/* Heading */} <br />
+      {/* Heading */} <br /> <br />
        <div className="absolute top-0 left-0 w-74 h-100 bg-gradient-to-br from-blue-600 to-transparent rounded-br-full opacity-50 pointer-events-none z-0" />
       <div className="absolute top-0 left-1/2 w-40 h-20 bg-gradient-to-br from-green-600 to-transparent rounded-b-full opacity-50 pointer-events-none z-0" />
       <div className="absolute bottom-0 left-4  w-74 h-20 bg-gradient-to-br from-green-600 to-transparent rounded-t-full opacity-50 pointer-events-none z-0" />
@@ -24,7 +24,7 @@ const AboutUs = () => {
       <div className="mb-16">
         <h3 className="text-2xl font-semibold text-purple-900 mb-4">Our Story</h3>
         <p className="text-black leading-relaxed">
-          SUKA Charitable Trust was founded by <strong>S. Santhosh Kumar</strong> and <strong>S. Radha Janani</strong> in Coimbatore, Tamil Nadu, with a vision to transform the landscape of kidney transplantation in India. Recognizing the challenges faced by patients and their families in navigating the complex transplant process, our founders set out to create a transparent, ethical, and legally compliant support system. <strong>SUKA</strong> (Safe Universe Knowledge and Action) stands as a beacon of hope, providing education, support, and guidance to ensure that life-saving kidney transplants are accessible to those in need.
+          SUKA Charitable Trust was founded by <strong>S. Santhosh Kumar</strong> and <strong>S. Radha Janani</strong> in Coimbatore, Tamil Nadu, with a vision to transform the landscape of kidney transplantation in India. Recognizing the challenges faced by patients and their families in navigating the complex transplant process, our founders set out to create a transparent, ethical, and legally compliant support system. <strong>SUKA</strong> (Safe Universe Knowledge and Action) stands as a beacon of hope, providing education, support and guidance to ensure that life-saving kidney transplants are accessible to those in need.
         </p>
       </div>
 
@@ -54,8 +54,8 @@ const AboutUs = () => {
         <ul className="list-disc list-inside space-y-2 text-black">
           <li><strong>Hospitals and Healthcare Providers:</strong> Streamlining transplant processes and ensuring quality patient care.</li>
           <li><strong>Government Authorities:</strong> Ensuring compliance with legal regulations through active collaboration.</li>
-          <li><strong>Non-Governmental Organizations (NGOs):</strong> Focused on healthcare, organ donation, and patient support.</li>
-          <li><strong>Medical Professionals:</strong> Nephrologists, transplant surgeons, and healthcare workers for expert patient guidance.</li>
+          <li><strong>Non-Governmental Organizations (NGOs):</strong> Focused on healthcare, organ donation and patient support.</li>
+          <li><strong>Medical Professionals:</strong> Nephrologists, transplant surgeons and healthcare workers for expert patient guidance.</li>
           <li><strong>Community Organizations:</strong> Conducting awareness campaigns and health camps at the grassroots level.</li>
         </ul>
       </div>
@@ -67,9 +67,9 @@ const AboutUs = () => {
           Transparency is at the heart of SUKA Charitable Trust. We maintain the highest standards of accountability across our operations:
         </p>
         <ul className="list-disc list-inside space-y-2 text-black">
-          <li><strong>Annual Reports:</strong> Highlighting achievements, challenges, and future goals.</li>
-          <li><strong>Financial Statements:</strong> Detailed views of income, expenses, and donor fund usage.</li>
-          <li><strong>Impact Metrics:</strong> Showcasing lives impacted, patients supported, and awareness generated.</li>
+          <li><strong>Annual Reports:</strong> Highlighting achievements, challenges and future goals.</li>
+          <li><strong>Financial Statements:</strong> Detailed views of income, expenses and donor fund usage.</li>
+          <li><strong>Impact Metrics:</strong> Showcasing lives impacted, patients supported and awareness generated.</li>
         </ul>
       </div>
     </section>

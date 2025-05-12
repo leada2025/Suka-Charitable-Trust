@@ -13,13 +13,13 @@ const Donate = () => {
       <div className="absolute bottom-0 right-0 w-20 h-100 bg-gradient-to-tl from-blue-600 to-transparent rounded-tl-full opacity-50 pointer-events-none z-0" />
        <div className="absolute top-1/2 left-1/2 w-20 h-20 bg-gradient-to-bl from-green-600 to-transparent rounded-full opacity-50 pointer-events-none z-0 transform -translate-x-1/2 -translate-y-1/2" />
         <br />
-      <div className="max-w-6xl mx-auto">
+      <div className=" mx-auto">
         <h1 className="text-3xl md:text-4xl font-bold text-center text-purple-900 mb-8">
           Donate – SUKA Charitable Trust
         </h1>
         <p className="text-lg text-center text-black mb-12 max-w-3xl mx-auto">
           Your generosity can transform lives. Every donation helps us support kidney patients,
-          promote kidney health, and ensure ethical and transparent transplant practices across India.
+          promote kidney health and ensure ethical and transparent transplant practices across India.
         </p>
 
         {/* One-Time Donation */}
@@ -51,7 +51,7 @@ const Donate = () => {
             <li>Fund emergency assistance for critical patients.</li>
           </ul>
           <p className="mt-4">
-            <strong>Benefits:</strong> Automatic donations, impact updates, and recognition in our Annual Impact Report.
+            <strong>Benefits:</strong> Automatic donations, impact updates and recognition in our Annual Impact Report.
             <br />
             <strong>How to Start:</strong> Select “Monthly Giving” on the donation page and set your amount.
           </p>

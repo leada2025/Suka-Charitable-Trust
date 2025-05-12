@@ -16,7 +16,7 @@ const GetInvolved = () => {
            <div className="absolute top-1/2 left-1/2 w-20 h-20 bg-gradient-to-bl from-green-600 to-transparent rounded-full opacity-50 pointer-events-none z-0 transform -translate-x-1/2 -translate-y-1/2" />
 
          <br />
-      <div className="max-w-6xl mx-auto">
+      <div className=" mx-auto">
         <h1 className="text-3xl md:text-4xl font-bold text-purple-900 mb-8 text-center">
           Get Involved - SUKA Charitable Trust
         </h1>

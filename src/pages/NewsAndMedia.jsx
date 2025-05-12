@@ -13,14 +13,14 @@ const NewsMediaPage = () => {
 <div className="absolute top-0 right-0 w-20 h-40 bg-gradient-to-br from-blue-600 to-transparent rounded-bl-full opacity-50 pointer-events-none z-0" />
         <div className="absolute top-1/2 left-1/2 w-20 h-20 bg-gradient-to-bl from-green-600 to-transparent rounded-full opacity-50 pointer-events-none z-0 transform -translate-x-1/2 -translate-y-1/2" />
         <br />
-      <div className="text-center">
+      <div className="text-center mb-16">
         <h1 className="text-4xl font-bold text-purple-900 mb-4">News & Media</h1>
         <p className="text-lg text-black max-w-3xl mx-auto">
           Stay updated with our latest announcements, achievements, and insights into kidney health and transplantation.
         </p>
       </div>
 
-      <div>
+      <div className="mb-16">
         <h2 className="text-2xl font-semibold text-purple-900 mb-4">📰 Press Releases</h2>
         <ul className="list-disc pl-6 space-y-2">
           <li>Launch of Kidney Health Awareness Campaign in Coimbatore.</li>
@@ -30,7 +30,7 @@ const NewsMediaPage = () => {
         <p className="mt-4">Stay tuned for more impactful updates.</p>
       </div>
 
-      <div>
+      <div className="mb-16">
         <h2 className="text-2xl font-semibold text-purple-900 mb-4">📬 Newsletters</h2>
         <p className="mb-4">Subscribe to get monthly updates including:</p>
         <ul className="list-disc pl-6 space-y-2">
@@ -61,7 +61,7 @@ const NewsMediaPage = () => {
         <p className="mt-4">Interested in covering our story? Contact our Media Relations team.</p>
       </div>
 
-      <div>
+      {/* <div>
         <h2 className="text-2xl font-semibold text-purple-900 mb-4">✍️ Blog Posts</h2>
         <ul className="list-disc pl-6 space-y-2">
           <li>Understanding Kidney Health: Prevention and Care</li>
@@ -70,7 +70,7 @@ const NewsMediaPage = () => {
           <li>Nutrition Tips for Kidney Patients</li>
         </ul>
         <p className="mt-4">📌 Visit our blog to stay informed and inspired.</p>
-      </div>
+      </div> */}
     </section>
   );
 };

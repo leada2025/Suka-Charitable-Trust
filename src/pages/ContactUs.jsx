@@ -13,25 +13,43 @@ const ContactUsPage = () => {
       <div className="absolute bottom-0 right-0 w-20 h-100 bg-gradient-to-tl from-blue-600 to-transparent rounded-tl-full opacity-50 pointer-events-none z-0" />
        <div className="absolute top-1/2 left-1/2 w-20 h-20 bg-gradient-to-bl from-green-600 to-transparent rounded-full opacity-50 pointer-events-none z-0 transform -translate-x-1/2 -translate-y-1/2" />
         <br />
-      <div className="text-center">
+      <div className="text-center mb-16">
         <h1 className="text-4xl font-bold text-purple-900 mb-4">Contact Us</h1>
         <p className="text-lg text-black max-w-3xl mx-auto">
-          Whether you’re a patient, donor, volunteer, or partner, we’re here to connect and support you.
+          Whether you’re a patient, donor, volunteer or partner, we’re here to connect and support you.
         </p>
       </div>
 
-      <div className="space-y-4">
-        <h2 className="text-2xl font-semibold text-purple-900">📍 Contact Information</h2>
-        <p>Address: SUKA Charitable Trust, 123 Health Avenue, Coimbatore, Tamil Nadu, 641001, India</p>
-        <p>Phone: +91 98765 43210</p>
-        <p>Email: contact@sukacharity.org</p>
-        <p>Website: www.sukacharity.org</p>
-        <p>Office Hours: Monday to Saturday: 9:00 AM - 6:00 PM | Sunday: Closed</p>
-      </div>
+    <div className="space-y-4 mb-16">
+  <h2 className="text-2xl font-semibold text-purple-900">📍 Contact Information</h2>
+  <p>
+    <strong>Address:</strong> SUKA Charitable Trust, 123 Health Avenue,<br />
+    Coimbatore-641001, Tamil Nadu, India
+  </p>
+  <p>
+    <strong>Phone:</strong>{" "}
+    <a href="tel:+919876543210" className="text-purple-900 hover:underline">
+      +91 98765 43210
+    </a>
+  </p>
+  <p>
+    <strong>Email:</strong>{" "}
+    <a href="mailto:contact@sukacharity.org" className="text-purple-900 hover:underline">
+      contact@sukacharity.org
+    </a>
+  </p>
+  <p>
+    <strong>Website:</strong>{" "}
+    <a href="https://www.sukacharity.org" target="_blank" rel="noopener noreferrer" className="text-purple-900 hover:underline">
+      www.sukacharity.org
+    </a>
+  </p>
+  <p><strong>Office Hours:</strong> Monday to Saturday: 9:00 AM - 6:00 PM | Sunday: Closed</p>
+</div>
 
-      <div>
+      <div className="mb-16">
         <h2 className="text-2xl font-semibold text-purple-900 mb-4">📩 Inquiry Form</h2>
-        <form className="space-y-4 max-w-2xl mx-auto">
+        <form className="space-y-4 max-w-2xl mx-auto mt-12">
           <input
             type="text"
             placeholder="Name"
@@ -62,8 +80,8 @@ const ContactUsPage = () => {
           </button>
         </form>
       </div>
-<br />
-      <div>
+
+      <div className="mb-16">
         <h2 className="text-2xl font-semibold text-purple-900 mb-4">📍 Location Map</h2>
         <div className="w-full h-64 bg-gray-200 flex items-center justify-center">
           <p>Google Map Embed Here</p>

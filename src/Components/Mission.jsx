@@ -22,9 +22,9 @@ const MissionVision = () => {
             <ul className="list-disc list-inside text-black space-y-1">
               <li><strong>Simplify the Transplant Process:</strong> Identifying and eliminating bottlenecks in the kidney transplant approval process.</li>
               <li><strong>Promote Legal Compliance:</strong> Ensuring all transplants are conducted within the legal framework of India.</li>
-              <li><strong>Enhance Awareness:</strong> Educating the public, patients, and families about kidney health, transplantation, and the legal aspects of donation.</li>
-              <li><strong>Patient Support:</strong> Offering guidance, emotional support, and resources to kidney patients and their families.</li>
-              <li><strong>Collaborate with Stakeholders:</strong> Working closely with hospitals, government authorities, NGOs, and healthcare professionals to streamline transplant procedures.</li>
+              <li><strong>Enhance Awareness:</strong> Educating the public, patients and families about kidney health, transplantation and the legal aspects of donation.</li>
+              <li><strong>Patient Support:</strong> Offering guidance, emotional support and resources to kidney patients and their families.</li>
+              <li><strong>Collaborate with Stakeholders:</strong> Working closely with hospitals, government authorities, NGOs and healthcare professionals to streamline transplant procedures.</li>
             </ul>
           </>
         ),
@@ -33,7 +33,7 @@ const MissionVision = () => {
     : {
         title: "Our Vision",
         description:
-          "To build a streamlined and transparent system for kidney transplants in India, where patients receive timely, ethical, and legally compliant support, empowering them with the knowledge and access they need for a successful transplant journey",
+          "To build a streamlined and transparent system for kidney transplants in India, where patients receive timely, ethical, and legally compliant support, empowering them with the knowledge and access they need for a successful transplant journey.",
         image: visionImg,
       };
 

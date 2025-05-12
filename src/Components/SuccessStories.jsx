@@ -12,7 +12,7 @@ const SuccessStoriesCarousel = () => {
       id: 1,
       title: "Memphis’ Story",
       description:
-        "Memphis had chronic kidney disease due to a problem with his remaining kidney. His journey was filled with courage, determination, and support from the community. His journey was filled with courage, determination, and support from the community",
+        "Memphis had chronic kidney disease due to a problem with his remaining kidney. His journey was filled with courage, determination and support from the community. His journey was filled with courage, determination and support from the community",
       image: story1,
     },
     {

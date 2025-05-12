@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import React from "react";
-import logo from "../assets/logo.png";
-import { Link, useNavigate } from "react-router-dom";
+import logo from "../assets/logo.webp";
+
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +11,7 @@ const Navbar = () => {
   const [showSignup, setShowSignup] = useState(false);
     const [showLogin, setShowLogin] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -28,12 +30,21 @@ const Navbar = () => {
     navigate(link.path); // ← programmatic navigation
   };
 
+
+useEffect(() => {
+  const current = navLinks.find(link => link.path === location.pathname);
+  if (current) {
+    setActiveLink(current.name);
+  }
+}, [location.pathname]);
+
+
   return (
     <>
-    <nav className="bg-white shadow-md fixed w-full z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <nav className="bg-white md:h-22 shadow-md fixed w-full z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-22 flex items-center justify-between">
         {/* Logo */}
-        <img className="w-14 h-14 cursor-pointer" src={logo} alt="Logo" onClick={() => navigate("/")} />
+      <img className="w-47 h-20 cursor-pointer" src={logo} alt="Logo" onClick={() => navigate("/")} />
 
         {/* Desktop Nav */}
         <div className="hidden md:flex flex-1 justify-center space-x-4">
@@ -79,9 +90,9 @@ const Navbar = () => {
               onClick={() => handleLinkClick(link)}
               className={`block w-full text-left py-2 ${
                 activeLink === link.name
-                  ? "text-purpl-600 font-semibold"
+                  ? "text-purple-900 font-semibold"
                   : "text-black"
-              } hover:text-purple-900`}
+              } hover:text-purple-900 `}
             >
               {link.name}
             </button>

@@ -15,6 +15,7 @@ import Donate from './pages/Donate';
 import NewsMediaPage from './pages/NewsAndMedia';
 import ContactUsPage from './pages/ContactUs';
 import Footer from './Components/Footer';
+import Careers from './pages/Careers';
 
 function App() {
   useEffect(() => {
@@ -33,6 +34,7 @@ function App() {
         <Route path="/donate" element={<Donate />} />
         <Route path="/news" element={<NewsMediaPage />} />
         <Route path="/contact" element={<ContactUsPage />} />
+         <Route path="/careers" element={<Careers />} />
         
       </Routes>
       <Footer/>
