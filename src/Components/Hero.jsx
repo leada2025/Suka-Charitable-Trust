@@ -1,5 +1,6 @@
 import React from 'react';
 import hero from '../assets/hero.jpg';
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   return (
@@ -22,9 +23,15 @@ const HeroSection = () => {
             <p className="text-black mb-6">
               At SUKA Charitable Trust, we are dedicated to creating a safe, transparent and efficient ecosystem for kidney transplant processes in India. Founded by S. Santhosh Kumar and S. Radha Janani in Coimbatore, Tamil Nadu, our mission is to ensure that life-saving kidney transplants are conducted ethically, legally, and efficiently, providing hope to those in need.
             </p>
-            <button className="inline-flex items-center bg-purple-900 text-white px-5 py-2 rounded hover:bg-blue-700 transition ">
-              Explore it <span className="ml-2">→</span>
-            </button>
+      
+
+<Link
+  to="/get-involved"
+  className="inline-flex items-center bg-purple-900 text-white px-5 py-2 rounded hover:bg-blue-700 transition"
+>
+  Explore it <span className="ml-2">→</span>
+</Link>
+
           </div> <br />
 
           {/* Image */}

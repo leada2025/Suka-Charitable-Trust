@@ -1,7 +1,25 @@
-import React from "react";
+
+import React, { useEffect, useState } from "react";
+import axios from "../api/Axios"; // adjust path if needed
+
 
 const GetInvolved = () => {
+
+  const [upcomingEvents, setUpcomingEvents] = useState([]);
+
+useEffect(() => {
   window.scroll(0, 0);
+  fetchEvents();
+}, []);
+
+const fetchEvents = async () => {
+  try {
+    const res = await axios.get("/api/events"); // Make sure this route returns upcoming events
+    setUpcomingEvents(res.data);
+  } catch (err) {
+    console.error("Failed to fetch events", err);
+  }
+};
 
    
   return (
@@ -49,14 +67,26 @@ const GetInvolved = () => {
             <li><strong>Crowdfunding:</strong> Start a personal fundraiser with friends & family.</li>
             <li><strong>Memorial Giving:</strong> Donate in memory of a loved one.</li>
           </ul>
-          <p className="mt-4">
-            <strong>Upcoming Events:</strong><br />
-            • World Kidney Day Walk<br />
-            • Health Education Webinar Series<br />
-            • Health Camp Sponsorship Drive<br />
-            <br />
-            Interested in hosting or fundraising? <a href="/contact" className="text-blue-700 underline">Contact us</a> for help and promotion.
-          </p>
+       <div className="mt-4">
+  <strong>Upcoming Events:</strong>
+  {upcomingEvents.length > 0 ? (
+    <ul className="list-disc pl-6 mt-2 space-y-1">
+      {upcomingEvents.map((event) => (
+        <li key={event._id}>
+          <strong>{event.title}</strong> – {event.date} @ {event.location}
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p className="text-gray-600 mt-2">No upcoming events at the moment.</p>
+  )}
+
+  <p className="mt-4">
+    Interested in hosting or fundraising?{" "}
+    <a href="/contact" className="text-blue-700 underline">Contact us</a> for help and promotion.
+  </p>
+</div>
+
         </section>
 
         {/* Partnerships */}
@@ -88,12 +118,7 @@ const GetInvolved = () => {
             <li><strong>Writers & Educators:</strong> Create content and educational programs.</li>
           </ul>
           <p className="mt-4">
-            <strong>Current Openings:</strong><br />
-            • Community Outreach Coordinator<br />
-            • Health Camp Organizer<br />
-            • Volunteer Coordinator<br />
-            • Digital Marketing Assistant<br />
-            <br />
+           
             <a href="/careers" className="text-blue-700 underline">Visit our Careers page</a> to apply or learn more.
           </p>
         </section>

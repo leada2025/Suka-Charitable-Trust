@@ -1,7 +1,51 @@
-import React from "react";
+
+import axios from "../api/Axios";
+import React, { useEffect, useState } from "react";
 
 const NewsMediaPage = () => {
-  window.scroll(0, 0);
+  
+    const [email, setEmail] = useState("");
+  const [status, setStatus] = useState("");
+
+useEffect(()=>{
+window.scroll(0, 0);
+},[])
+
+const handleSubscribe = async () => {
+  if (!email) {
+    setStatus("Please enter a valid email.");
+    return;
+  }
+
+  const token = localStorage.getItem("token");
+  if (!token) {
+    setStatus("Please log in to subscribe.");
+    return;
+  }
+
+  try {
+    const res = await axios.post(
+      "/api/subscribers",
+      { email },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    if (res.status === 201) {
+      setStatus("✅ Thank you for subscribing! Please check your inbox.");
+      setEmail("");
+    } else {
+      setStatus("Something went wrong. Please try again.");
+    }
+  } catch (err) {
+    setStatus("❌ This email may already be subscribed or an error occurred.");
+  }
+};
+
+
 
   return (
      <section className=" min-h-screen px-6 md:px-20 py-16 relative">
@@ -39,16 +83,22 @@ const NewsMediaPage = () => {
           <li>Upcoming SUKA events</li>
           <li>Healthcare expert interviews</li>
         </ul>
-        <div className="mt-6 max-w-md">
-          <input
-            type="email"
-            placeholder="Enter your email"
-            className="w-full px-4 py-2 border rounded-md mb-2"
-          />
-          <button className="w-full bg-purple-600 hover:bg-purple-900 text-white py-2 rounded-md">
-            📌 Subscribe Now
-          </button>
-        </div>
+         <div className="mt-6 max-w-md">
+      <input
+        type="email"
+        placeholder="Enter your email"
+        className="w-full px-4 py-2 border rounded-md mb-2"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <button
+        className="w-full bg-purple-600 hover:bg-purple-900 text-white py-2 rounded-md"
+        onClick={handleSubscribe}
+      >
+        📌 Subscribe Now
+      </button>
+      {status && <p className="mt-2 text-sm text-gray-700">{status}</p>}
+    </div>
       </div>
 
       <div>

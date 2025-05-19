@@ -11,3 +11,13 @@
 body {
   @apply font-monts;
 }
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.animate-fadeOut {
+  animation: fadeOut 3s forwards;
+}

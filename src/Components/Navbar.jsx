@@ -2,8 +2,11 @@ import { useState,useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import React from "react";
 import logo from "../assets/logo.webp";
+import { FaUserCircle } from "react-icons/fa";
 
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import LoginModal from '../Components/Login';
+import SignupModal from '../Components/Signup';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,6 +15,10 @@ const Navbar = () => {
     const [showLogin, setShowLogin] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const [user, setUser] = useState(null);
+  const [notification, setNotification] = useState('');
+
+
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -38,9 +45,45 @@ useEffect(() => {
   }
 }, [location.pathname]);
 
+useEffect(() => {
+  const storedUser = localStorage.getItem('user');
+  if (storedUser) {
+    setUser(JSON.parse(storedUser));
+  }
+}, []);
+
+const handleLogout = () => {
+  localStorage.removeItem('token');
+  localStorage.removeItem('user');
+  setUser(null);
+  showNotification('Logout successful!');
+  navigate('/');
+ // reload to refresh UI
+};
+
+const showNotification = (msg) => {
+  setNotification(msg);
+  setTimeout(() => {
+    setNotification('');
+  }, 3000);
+};
+
+const handleLoginClose = () => {
+  setShowLogin(false);
+  const storedUser = localStorage.getItem('user');
+  if (storedUser) {
+    setUser(JSON.parse(storedUser));
+  }
+};
+
 
   return (
     <>
+        {notification && (
+  <div className="fixed justify-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  bg-green-500 text-white px-4 py-2 rounded shadow-md z-9999 animate-fadeOut">
+    {notification}
+  </div>
+)}
     <nav className="bg-white md:h-22 shadow-md fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-22 flex items-center justify-between">
         {/* Logo */}
@@ -64,14 +107,30 @@ useEffect(() => {
         </div>
 
         {/* Auth Buttons */}
-        <div className="hidden md:flex items-center space-x-4">
-          <button className="text-black hover:text-purple-900"
-          onClick={() => setShowLogin(true)}>Login</button>
-          <button className="bg-purple-900 text-white px-4 py-1 rounded hover:bg-blue-700"
-           onClick={() => setShowSignup(true)}>
-            Sign Up
-          </button>
-        </div>
+  <div className="hidden md:flex items-center space-x-4">
+  {user ? (
+    <>
+      <FaUserCircle className="text-2xl text-purple-900" />
+      
+      <button
+        onClick={handleLogout}
+        className="bg-purple-900 text-white px-4 py-1 rounded hover:bg-red-600"
+      >
+        Logout
+      </button>
+    </>
+  ) : (
+    <>
+      <button className="text-black hover:text-purple-900"
+        onClick={() => setShowLogin(true)}>Login</button>
+      <button className="bg-purple-900 text-white px-4 py-1 rounded hover:bg-blue-700"
+        onClick={() => setShowSignup(true)}>
+        Sign Up
+      </button>
+    </>
+  )}
+</div>
+
 
         {/* Mobile Toggle */}
         <div className="md:hidden">
@@ -82,69 +141,67 @@ useEffect(() => {
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-white shadow-lg px-4 pb-4">
-          {navLinks.map((link) => (
-            <button
-              key={link.name}
-              onClick={() => handleLinkClick(link)}
-              className={`block w-full text-left py-2 ${
-                activeLink === link.name
-                  ? "text-purple-900 font-semibold"
-                  : "text-black"
-              } hover:text-purple-900 `}
-            >
-              {link.name}
-            </button>
-          ))}
-          <hr className="my-2" />
-          <button className="block w-full text-left py-2 text-gray-700 hover:text-blue-600"
-           onClick={() => {
-    setShowLogin(true);
-    setIsOpen(false);
-  }}>
-            Login
-          </button>
-          <button className="block w-full text-left py-2 bg-purple-900 text-white rounded hover:bg-blue-700 px-3"
-           onClick={() => {
-    setShowSignup(true);
-    setIsOpen(false);
-  }}>
-            Sign Up
-          </button>
+     {isOpen && (
+  <div className="md:hidden bg-white shadow-lg px-4 pb-4">
+    {navLinks.map((link) => (
+      <button
+        key={link.name}
+        onClick={() => handleLinkClick(link)}
+        className={`block w-full text-left py-2 ${
+          activeLink === link.name
+            ? "text-purple-900 font-semibold"
+            : "text-black"
+        } hover:text-purple-900`}
+      >
+        {link.name}
+      </button>
+    ))}
+    <hr className="my-2" />
+    
+    {user ? (
+      <>
+        <div className="flex items-center space-x-2 py-2">
+          <FaUserCircle className="text-xl text-purple-900" />
+          <span className="text-black">{user.name}</span>
         </div>
-      )}
+        <button
+          onClick={handleLogout}
+          className="block w-full text-left py-2 bg-purple-900 text-white rounded hover:bg-red-600 px-3"
+        >
+          Logout
+        </button>
+      </>
+    ) : (
+      <>
+        <button
+          className="block w-full text-left py-2 text-gray-700 hover:text-blue-600"
+          onClick={() => {
+            setShowLogin(true);
+            setIsOpen(false);
+          }}
+        >
+          Login
+        </button>
+        <button
+          className="block w-full text-left py-2 bg-purple-900 text-white rounded hover:bg-blue-700 px-3"
+          onClick={() => {
+            setShowSignup(true);
+            setIsOpen(false);
+          }}
+        >
+          Sign Up
+        </button>
+      </>
+    )}
+
+
+
+  </div>
+)}
+
     </nav>
-
-    {showLogin && (
-        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center">
-          <div className="bg-white rounded-lg shadow-xl w-96 p-6">
-            <h2 className="text-xl font-semibold mb-4">Login</h2>
-            <input type="email" placeholder="Email" className="w-full p-2 mb-3 border rounded" />
-            <input type="password" placeholder="Password" className="w-full p-2 mb-3 border rounded" />
-            <div className="flex justify-end space-x-2">
-              <button onClick={() => setShowLogin(false)} className="px-4 py-1 bg-gray-300 rounded hover:bg-gray-400">Cancel</button>
-              <button className="px-4 py-1 bg-purple-900 text-white rounded hover:bg-blue-700">Login</button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Signup Modal */}
-      {showSignup && (
-        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center">
-          <div className="bg-white rounded-lg shadow-xl w-96 p-6">
-            <h2 className="text-xl font-semibold mb-4">Sign Up</h2>
-            <input type="text" placeholder="Name" className="w-full p-2 mb-3 border rounded" />
-            <input type="email" placeholder="Email" className="w-full p-2 mb-3 border rounded" />
-            <input type="password" placeholder="Password" className="w-full p-2 mb-3 border rounded" />
-            <div className="flex justify-end space-x-2">
-              <button onClick={() => setShowSignup(false)} className="px-4 py-1 bg-gray-300 rounded hover:bg-gray-400">Cancel</button>
-              <button className="px-4 py-1 bg-purple-900 text-white rounded hover:bg-blue-700">Sign Up</button>
-            </div>
-          </div>
-        </div>
-      )}
+  {showLogin && <LoginModal onClose={handleLoginClose} showNotification={showNotification} />}
+      {showSignup && <SignupModal onClose={() => setShowSignup(false)} showNotification={showNotification} />}
       </>
   );
 };
